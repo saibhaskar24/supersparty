@@ -2140,7 +2140,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1636071784}
   - component: {fileID: 1636071783}
-  - component: {fileID: 1636071781}
   - component: {fileID: 1636071780}
   - component: {fileID: 1636071785}
   m_Layer: 0
@@ -2152,14 +2151,6 @@ GameObject:
   m_IsActive: 1
 --- !u!81 &1636071780
 AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636071779}
-  m_Enabled: 1
---- !u!124 &1636071781
-Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2416,10 +2407,10 @@ MonoBehaviour:
   LevelSelectDefaultButton: {fileID: 1605769411}
   QuitButton: {fileID: 372197449}
   LevelNames:
-  - Level1
-  - Level2
-  - Level3
-  - Level4
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
   LevelsPanel: {fileID: 1965858418}
   LevelButtonPrefab: {fileID: 119286, guid: a21484d929f934e8581ce67b72fa9d20, type: 3}
   titleText: {fileID: 1137038749}
