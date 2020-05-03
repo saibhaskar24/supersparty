@@ -2416,10 +2416,10 @@ MonoBehaviour:
   LevelSelectDefaultButton: {fileID: 1605769411}
   QuitButton: {fileID: 372197449}
   LevelNames:
-  - Level 1
-  - Level 2
-  - Level 3
-  - Level 4
+  - Level1
+  - Level2
+  - Level3
+  - Level4
   LevelsPanel: {fileID: 1965858418}
   LevelButtonPrefab: {fileID: 119286, guid: a21484d929f934e8581ce67b72fa9d20, type: 3}
   titleText: {fileID: 1137038749}
