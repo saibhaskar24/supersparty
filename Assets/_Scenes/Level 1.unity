@@ -1721,7 +1721,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 14135
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5539,36 +5539,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1048372193}
     m_Modifications:
-    - target: {fileID: 2796459779272361136, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796459779272361136, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_UseFullKinematicContacts
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796459779272361137, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0504442
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796459779272361137, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.050533667
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796459779272361138, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.057735916
-      objectReference: {fileID: 0}
-    - target: {fileID: 2796459779272361138, guid: 1d9b8390798835e4da701108bba38289,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.011608498
-      objectReference: {fileID: 0}
     - target: {fileID: 4579145006481722836, guid: 1d9b8390798835e4da701108bba38289,
         type: 3}
       propertyPath: m_Name

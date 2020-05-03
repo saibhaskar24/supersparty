@@ -105,6 +105,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1820405625427010616, guid: 4eb3e33ba6313744d8d824ddc95ba909,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820405625427010617, guid: 4eb3e33ba6313744d8d824ddc95ba909,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0504442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820405625427010617, guid: 4eb3e33ba6313744d8d824ddc95ba909,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.050533667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820405625427010618, guid: 4eb3e33ba6313744d8d824ddc95ba909,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.057735916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820405625427010618, guid: 4eb3e33ba6313744d8d824ddc95ba909,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.011608498
+      objectReference: {fileID: 0}
     - target: {fileID: 1820405625427010620, guid: 4eb3e33ba6313744d8d824ddc95ba909,
         type: 3}
       propertyPath: m_LocalPosition.x
