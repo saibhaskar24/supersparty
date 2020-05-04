@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class CharacterController2D : MonoBehaviour {
+public class CharacterController2D : MonoBehaviour
+{
 
 	// player controls
 	[Range(0.0f, 10.0f)] // create a slider in the editor and set limits on moveSpeed
@@ -55,21 +56,23 @@ public class CharacterController2D : MonoBehaviour {
 
 	// number of layer that Platforms are on (setup in Awake)
 	int _platformLayer;
-	
-	void Awake () {
+
+	void Awake()
+	{
 		// get a reference to the components we are going to be changing and store a reference for efficiency purposes
-		_transform = GetComponent<Transform> ();
-		
-		_rigidbody = GetComponent<Rigidbody2D> ();
-		if (_rigidbody==null) // if Rigidbody is missing
+		_transform = GetComponent<Transform>();
+
+		_rigidbody = GetComponent<Rigidbody2D>();
+		if (_rigidbody == null) // if Rigidbody is missing
 			Debug.LogError("Rigidbody2D component missing from this gameobject");
-		
+
 		_animator = GetComponent<Animator>();
-		if (_animator==null) // if Animator is missing
+		if (_animator == null) // if Animator is missing
 			Debug.LogError("Animator component missing from this gameobject");
-		
-		_audio = GetComponent<AudioSource> ();
-		if (_audio==null) { // if AudioSource is missing
+
+		_audio = GetComponent<AudioSource>();
+		if (_audio == null)
+		{ // if AudioSource is missing
 			Debug.LogWarning("AudioSource component missing from this gameobject. Adding one.");
 			// let's just add the AudioSource component dynamically
 			_audio = gameObject.AddComponent<AudioSource>();
@@ -90,13 +93,15 @@ public class CharacterController2D : MonoBehaviour {
 			return;
 
 		// determine horizontal velocity change based on the horizontal input
-		_vx = CrossPlatformInputManager.GetAxisRaw ("Horizontal");
+		_vx = CrossPlatformInputManager.GetAxisRaw("Horizontal");
 
 		// Determine if running based on the horizontal movement
-		if (_vx != 0) 
+		if (_vx != 0)
 		{
 			_isRunning = true;
-		} else {
+		}
+		else
+		{
 			_isRunning = false;
 		}
 
@@ -109,10 +114,10 @@ public class CharacterController2D : MonoBehaviour {
 		// Check to see if character is grounded by raycasting from the middle of the player
 		// down to the groundCheck position and see if collected with gameobjects on the
 		// whatIsGround layer
-		_isGrounded = Physics2D.Linecast(_transform.position, groundCheck.position, whatIsGround);  
+		_isGrounded = Physics2D.Linecast(_transform.position, groundCheck.position, whatIsGround);
 
 		//allow double jump after grounded
-		if(_isGrounded)
+		if (_isGrounded)
 		{
 			_canDoubleJump = true;
 		}
@@ -121,18 +126,19 @@ public class CharacterController2D : MonoBehaviour {
 		// Set the grounded animation states
 		_animator.SetBool("Grounded", _isGrounded);
 
-		if(_isGrounded && CrossPlatformInputManager.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
+		if (_isGrounded && CrossPlatformInputManager.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
 		{
 			DoJump();
-		} else if(_canDoubleJump && CrossPlatformInputManager.GetButton("Jump"))  //is can double jump and input is jump key
+		}
+		else if (_canDoubleJump && CrossPlatformInputManager.GetButton("Jump"))  //is can double jump and input is jump key
 		{
 			DoJump();
 			_canDoubleJump = false; //must set to fase as doublle jump can only be called once
 		}
-	
+
 		// If the player stops jumping mid jump and player is not yet falling
 		// then set the vertical velocity to 0 (he will start to fall from gravity)
-		if(CrossPlatformInputManager.GetButtonUp("Jump") && _vy>0f)
+		if (CrossPlatformInputManager.GetButtonUp("Jump") && _vy > 0f)
 		{
 			_vy = 0f;
 		}
@@ -143,7 +149,7 @@ public class CharacterController2D : MonoBehaviour {
 		// if moving up then don't collide with platform layer
 		// this allows the player to jump up through things on the platform layer
 		// NOTE: requires the platforms to be on a layer named "Platform"
-		Physics2D.IgnoreLayerCollision(_playerLayer, _platformLayer, (_vy > 0.0f)); 
+		Physics2D.IgnoreLayerCollision(_playerLayer, _platformLayer, (_vy > 0.0f));
 	}
 
 	// Checking to see if the sprite should be flipped
@@ -157,13 +163,16 @@ public class CharacterController2D : MonoBehaviour {
 		if (_vx > 0) // moving right so face right
 		{
 			_facingRight = true;
-		} else if (_vx < 0) { // moving left so face left
+		}
+		else if (_vx < 0)
+		{ // moving left so face left
 			_facingRight = false;
 		}
 
 		// check to see if scale x is right for the player
 		// if not, multiple by -1 which is an easy way to flip a sprite
-		if (((_facingRight) && (localScale.x<0)) || ((!_facingRight) && (localScale.x>0))) {
+		if (((_facingRight) && (localScale.x < 0)) || ((!_facingRight) && (localScale.x > 0)))
+		{
 			localScale.x *= -1;
 		}
 
@@ -175,7 +184,7 @@ public class CharacterController2D : MonoBehaviour {
 	// so it will go for a ride on the MovingPlatform
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag=="MovingPlatform")
+		if (other.gameObject.tag == "MovingPlatform")
 		{
 			this.transform.parent = other.transform;
 		}
@@ -184,21 +193,23 @@ public class CharacterController2D : MonoBehaviour {
 	// if the player exits a collision with a moving platform, then unchild it
 	void OnCollisionExit2D(Collision2D other)
 	{
-		if (other.gameObject.tag=="MovingPlatform")
+		if (other.gameObject.tag == "MovingPlatform")
 		{
 			this.transform.parent = null;
 		}
 	}
 
 	// do what needs to be done to freeze the player
- 	void FreezeMotion() {
+	void FreezeMotion()
+	{
 		playerCanMove = false;
-        _rigidbody.velocity = new Vector2(0,0);
+		_rigidbody.velocity = new Vector2(0, 0);
 		_rigidbody.isKinematic = true;
 	}
 
 	// do what needs to be done to unfreeze the player
-	void UnFreezeMotion() {
+	void UnFreezeMotion()
+	{
 		playerCanMove = true;
 		_rigidbody.isKinematic = false;
 	}
@@ -210,23 +221,28 @@ public class CharacterController2D : MonoBehaviour {
 	}
 
 	// public function to apply damage to the player
-	public void ApplyDamage (int damage) {
-		if (playerCanMove) {
+	public void ApplyDamage(int damage)
+	{
+		if (playerCanMove)
+		{
 			playerHealth -= damage;
 
-			if (playerHealth <= 0) { // player is now dead, so start dying
+			if (playerHealth <= 0)
+			{ // player is now dead, so start dying
 				PlaySound(deathSFX);
-				StartCoroutine (KillPlayer ());
+				StartCoroutine(KillPlayer());
 			}
 		}
 	}
 
 	// public function to kill the player when they have a fall death
-	public void FallDeath () {
-		if (playerCanMove) {
+	public void FallDeath()
+	{
+		if (playerCanMove)
+		{
 			playerHealth = 0;
 			PlaySound(fallSFX);
-			StartCoroutine (KillPlayer ());
+			StartCoroutine(KillPlayer());
 		}
 	}
 
@@ -240,7 +256,7 @@ public class CharacterController2D : MonoBehaviour {
 
 			// play the death animation
 			_animator.SetTrigger("Death");
-			
+
 			// After waiting tell the GameManager to reset the game
 			yield return new WaitForSeconds(2.0f);
 
@@ -251,7 +267,8 @@ public class CharacterController2D : MonoBehaviour {
 		}
 	}
 
-	public void CollectCoin(int amount) {
+	public void CollectCoin(int amount)
+	{
 		PlaySound(coinSFX);
 
 		if (GameManager.gm) // add the points through the game manager, if it is available
@@ -270,9 +287,10 @@ public class CharacterController2D : MonoBehaviour {
 	}
 
 	// public function on victory over the level
-	public void Victory() {
+	public void Victory()
+	{
 		PlaySound(victorySFX);
-		FreezeMotion ();
+		FreezeMotion();
 		_animator.SetTrigger("Victory");
 
 		if (GameManager.gm) // do the game manager level compete stuff, if it is available
@@ -280,7 +298,8 @@ public class CharacterController2D : MonoBehaviour {
 	}
 
 	// public function to respawn the player at the appropriate location
-	public void Respawn(Vector3 spawnloc) {
+	public void Respawn(Vector3 spawnloc)
+	{
 		UnFreezeMotion();
 		playerHealth = 1;
 		_transform.parent = null;
