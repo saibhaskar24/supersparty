@@ -82,6 +82,11 @@ public static class PlayerPrefManager
         // get current scene
         Scene scene = SceneManager.GetActiveScene();
         PlayerPrefs.SetInt(scene.name, 1);
+        int nl = scene.name[6] - '0' + 1;
+        string x = scene.name.Substring(0, 6);
+        x = x +  nl;
+        PlayerPrefs.SetInt(x, 1);
+
     }
 
     // determine if a levelname is currently unlocked (i.e., it has a key set)

@@ -82,8 +82,11 @@ public class MainMenuManager : MonoBehaviour
             // set the label of the button
             Text levelButtonLabel = levelButton.GetComponentInChildren<Text>();
             levelButtonLabel.text = levelname;
+            levelButtonScript.interactable = true;
 
             // determine if the button should be interactable based on if the level is unlocked
+
+            
             if (PlayerPrefManager.LevelIsUnlocked(levelname))
             {
                 levelButtonScript.interactable = true;
