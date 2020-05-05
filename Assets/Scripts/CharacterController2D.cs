@@ -130,7 +130,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			DoJump();
 		}
-		else if (_canDoubleJump && CrossPlatformInputManager.GetButton("Jump"))  //is can double jump and input is jump key
+		else if ( _canDoubleJump && CrossPlatformInputManager.GetButtonDown("Jump"))  //is can double jump and input is jump key
 		{
 			DoJump();
 			_canDoubleJump = false; //must set to fase as doublle jump can only be called once
@@ -149,7 +149,7 @@ public class CharacterController2D : MonoBehaviour
 		// if moving up then don't collide with platform layer
 		// this allows the player to jump up through things on the platform layer
 		// NOTE: requires the platforms to be on a layer named "Platform"
-		Physics2D.IgnoreLayerCollision(_playerLayer, _platformLayer, (_vy > 0.0f));
+		Physics2D.IgnoreLayerCollision(_playerLayer, _platformLayer, (_vy > -1.0f));
 	}
 
 	// Checking to see if the sprite should be flipped

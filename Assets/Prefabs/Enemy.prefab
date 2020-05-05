@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 1820405625427010617}
   - component: {fileID: 1820405625427010616}
   - component: {fileID: 1820405625427010621}
-  - component: {fileID: 1820405625427010622}
   - component: {fileID: 1820405625427010623}
+  - component: {fileID: 2956456474256375683}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -339,25 +339,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &1820405625427010622
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820405625427010599}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b58d3cc6149465949b5a20acf3a36f8e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1820405625427010623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,3 +363,22 @@ MonoBehaviour:
   loopWaypoints: 1
   stunnedSFX: {fileID: 8300000, guid: b62591980e9d3f04f95a420c2ac0d842, type: 3}
   attackSFX: {fileID: 8300000, guid: 0b78c1f812de45a499bea22c0c904a84, type: 3}
+--- !u!95 &2956456474256375683
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820405625427010599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b58d3cc6149465949b5a20acf3a36f8e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
