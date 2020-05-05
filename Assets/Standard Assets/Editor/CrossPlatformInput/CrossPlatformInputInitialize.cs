@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 
@@ -82,7 +83,8 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
             {
                 BuildTargetGroup.Standalone,
                 BuildTargetGroup.Android,
-                BuildTargetGroup.iOS
+                BuildTargetGroup.iOS,
+                BuildTargetGroup.WSA
             };
 
         private static BuildTargetGroup[] mobileBuildTargetGroups = new BuildTargetGroup[]
